@@ -771,6 +771,37 @@ Kimi K2.7 Code:
   hide_article_link: true
   tech_report:
     url: https://huggingface.co/moonshotai/Kimi-K2.7-Code
+Kimi K3:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/kimi-k3.webp"
+  date: '2026-07-27'
+  summary: 2.8T sparse hybrid that combines a 3:1 KDA and Gated MLA stack with Block Attention Residuals and Stable LatentMoE. It is also native multimodal, but the figure focuses on the text portion.
+  scale: 2.8T total, 104B active (3.7% active)
+  context_tokens: '1,048,576'
+  license_name: Kimi K3 License
+  license_url: https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE
+  decoder_type: Sparse hybrid
+  attention: 3:1 Kimi Delta Attention and Gated MLA with NoPE
+  layer_mix: '69 KDA + 24 Gated MLA'
+  kv_cache_per_token_bf16: '27 KiB'
+  highlight: Uses eight Block Attention Residual groups and Stable LatentMoE with 16 of 896 routed experts active per token.
+  related_concepts:
+    - nope
+    - mla
+    - gated_attention
+    - gated_deltanet
+    - shortconv
+    - attention_residuals
+    - latent_moe
+    - moe
+  aa_intelligence_index: '57.0'
+  aai_profile: 'N/A'
+  aa_url: https://artificialanalysis.ai/models/kimi-k3/
+  config:
+    repo: moonshotai/Kimi-K3
+    label: config.json
+    url: https://huggingface.co/moonshotai/Kimi-K3/blob/main/config.json
+  tech_report:
+    url: https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf
 Kimi Linear 48B-A3B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/kimi-linear-48b-a3b.webp"
   date: '2025-10-30'
@@ -789,6 +820,7 @@ Kimi Linear 48B-A3B:
     - mla
     - gated_deltanet
     - shortconv
+    - attention_residuals
   aa_intelligence_index: '8.5'
   aai_profile: 'General N/A · Scientific N/A · Coding 14.2 · Agents N/A'
   aa_url: https://artificialanalysis.ai/models/kimi-linear-48b-a3b-instruct
