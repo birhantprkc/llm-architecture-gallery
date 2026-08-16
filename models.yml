@@ -1423,6 +1423,66 @@ Motif 3 Beta:
     label: config.json
     url: https://huggingface.co/Motif-Technologies/Motif-3-Beta/blob/main/config.json
   hide_article_link: true
+Muse Glimmer 30B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/muse-glimmer-30b.webp"
+  date: '2026-08-10'
+  summary: Meta's dense 29.6B multimodal model combines a 52-layer sandwich-norm decoder with gated GQA and a separate perception encoder; the figure focuses on the text backbone.
+  scale: 29.6B parameters (including perception encoder)
+  context_tokens: '131,072+'
+  vocab_size: '202,048 (~202k)'
+  license_name: Apache License 2.0
+  license_url: https://huggingface.co/meta-models/Muse-Glimmer-30B/blob/main/LICENSE
+  decoder_type: Dense
+  attention: Gated GQA with scaleless QK-Norm, local-only RoPE, global NoPE, and 3:1 sliding-window/global attention
+  layer_mix: '39 sliding-window + 13 global gated GQA'
+  kv_cache_per_token_bf16: '52 KiB'
+  highlight: Applies RoPE only in 2,048-token local layers, uses NoPE in global layers, and gates the attention output before projection.
+  related_concepts:
+    - gqa
+    - qk_norm
+    - swa
+    - gated_attention
+    - nope
+    - rope
+    - silu
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
+  config:
+    repo: meta-models/Muse-Glimmer-30B
+    label: config.json
+    url: https://huggingface.co/meta-models/Muse-Glimmer-30B/blob/main/config.json
+  hide_article_link: true
+  tech_report:
+    url: https://research.meta.ai/static/muse-glimmer-methodology
+Nemotron 3.5 Lightning 30B-A3B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/nemotron-3-5-lightning-30b-a3b.webp"
+  date: '2026-08-11'
+  summary: NVIDIA's 30B hybrid model keeps 3B parameters active and extends the Nemotron 3 Nano backbone with a 1M-token context window and multi-token prediction.
+  scale: 30B total, 3B active (10% active)
+  context_tokens: '1,048,576'
+  vocab_size: '131,072'
+  license_name: OpenMDW 1.1
+  license_url: https://openmdw.ai/license/1-1/
+  decoder_type: Hybrid MoE
+  attention: Mostly Mamba-2 with six GQA layers
+  layer_mix: '6 GQA + 23 Mamba-2 + 23 MoE; GQA + MoE MTP predictor'
+  kv_cache_per_token_bf16: '6 KiB'
+  highlight: Adds a one-step GQA-plus-MoE MTP predictor to the 52-layer Nemotron 3 Nano backbone.
+  related_concepts:
+    - gqa
+    - moe
+    - gated_deltanet
+    - rmsnorm
+    - mtp
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
+  config:
+    repo: nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4
+    label: config.json
+    url: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4/blob/main/config.json
+  hide_article_link: true
 Nemotron 3 Nano 30B-A3B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/nemotron-3-nano-30b-a3b.webp"
   date: '2025-12-04'
@@ -1855,6 +1915,37 @@ Qwen3.6 27B:
   hide_article_link: true
   tech_report:
     url: https://qwen.ai/blog?id=qwen3.6-27b
+Qwen3.8 27B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-8-27b.webp"
+  date: '2026-08-14'
+  summary: Dense 27B native vision-language model with a 64-layer Gated DeltaNet and Gated Attention language backbone; the figure omits the vision encoder and MTP head.
+  scale: 27B parameters
+  context_tokens: '262,144'
+  vocab_size: '248,320 (~248k)'
+  license_name: Apache License 2.0
+  license_url: https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/LICENSE
+  decoder_type: Dense hybrid
+  attention: 3:1 Gated DeltaNet and Gated Attention
+  layer_mix: '16 gated attention + 48 DeltaNet'
+  kv_cache_per_token_bf16: '64 KiB'
+  highlight: Uses a 64-layer 3:1 Gated DeltaNet/Gated Attention decoder with partial RoPE and one MTP layer.
+  related_concepts:
+    - gated_deltanet
+    - gqa
+    - gated_attention
+    - qk_norm
+    - rmsnorm
+    - rope
+    - silu
+    - mtp
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
+  config:
+    repo: Qwen/Qwen3.8-27B
+    label: config.json
+    url: https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/config.json
+  hide_article_link: true
 Sarvam 105B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/sarvam-105b.webp"
   date: '2026-03-03'
